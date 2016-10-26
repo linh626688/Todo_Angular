@@ -1,10 +1,25 @@
-<p>This is  view 1.</p>
 <ul>
-    <li ng-repeat="x in products">
-        {{x}}
-        <span ng-click="removeItem($index)">&times;</span>
-    </li>
+    <p>Product</p>
     <input ng-model="addMe">
     <button ng-click="addItem()">Add</button>
+    <li ng-repeat="item in products">
+        {{item}}
+        <button ng-click="removeItem($index)">Delete</button>
+        <button ng-click="actived(item)">Active</button>
+
+    </li>
+    <button ng-click="completeAll()">Complete All </button>
+    <button ng-click="activeAll()">Active All </button>
+
     <p>{{errortext}}</p>
+    <p>Active</p>
+    <li ng-repeat="item in actives track by $index">{{item}}
+        <button ng-click="addProduct(item)">Delete</button>
+        <button ng-click="complete(item)">Completed</button>
+    </li>
+    <p>Complete</p>
+    <li ng-repeat="item in completed track by $index">{{item}}
+        <button ng-click="addProduct(item)">Back Up</button>
+        <button ng-click="actived(item)">Not Complete</button>
+    </li>
 </ul>
